@@ -1,10 +1,13 @@
-import { Button } from "@/components/ui/button";
+import { Apresentation } from "@/components/apresentation";
+import { OrbitingHome } from "@/components/orbiting-home";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Lorem, ipsum.</h1>
-      <Button>Click Here</Button>
+    <main className="grid place-content-center ">
+      <div className="space-y-5">
+        <Apresentation />
+        <OrbitingHome />
+      </div>
     </main>
   );
 }
