@@ -19,7 +19,10 @@ export function Apresentation() {
           otimizar seu dia de trabalho.
         </p>
         <div className="w-[300px] text-center mx-auto text-lg relative">
-          <InteractiveHoverButton onClick={() => router.push("/options")}>
+          <InteractiveHoverButton
+            onClick={() => router.push("/options")}
+            id="btn-options"
+          >
             Testar Agora
           </InteractiveHoverButton>
         </div>

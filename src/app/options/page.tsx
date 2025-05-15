@@ -10,21 +10,25 @@ export default function Options() {
 
   const links = [
     {
+      id: "link-offices",
       href: "/offices",
       icon: Building,
       text: "Escritórios",
     },
     {
+      id: "link-rooms",
       href: "/rooms",
       icon: LampDesk,
       text: "Salas",
     },
     {
+      id: "link-resources",
       href: "/resources",
       icon: NotebookPen,
       text: "Recursos",
     },
     {
+      id: "link-reservations",
       href: "/reservations",
       icon: FileChartColumn,
       text: "Reservas",
@@ -37,10 +41,11 @@ export default function Options() {
         <ButtonBack />
       </div>
       <section className="flex justify-center align-middle gap-6 pt-[25vh]">
-        {links.map((link, index) => (
+        {links.map((link) => (
           <div
             className="relative bg-card size-[120px] rounded-xl  grid place-content-center cursor-pointer border-primary border-solid border-[1px] transition-all hover:scale-105"
-            key={index}
+            key={link.id}
+            id={link.id}
             onClick={() => router.push(link.href)}
           >
             <link.icon size={35} className="mx-auto" />
