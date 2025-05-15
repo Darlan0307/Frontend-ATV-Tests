@@ -7,7 +7,11 @@ import { ChevronLeft } from "lucide-react";
 export function ButtonBack() {
   const router = useRouter();
   return (
-    <Button className="cursor-pointer" onClick={() => router.back()}>
+    <Button
+      size="lg"
+      className="cursor-pointer text-lg"
+      onClick={() => router.back()}
+    >
       <ChevronLeft />
       Voltar
     </Button>
