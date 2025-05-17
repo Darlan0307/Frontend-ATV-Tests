@@ -9,7 +9,7 @@ export function ButtonBack() {
   return (
     <Button
       size="lg"
-      className="cursor-pointer text-lg"
+      className="cursor-pointer text-lg bg-color-3 text-white"
       onClick={() => router.back()}
     >
       <ChevronLeft />
