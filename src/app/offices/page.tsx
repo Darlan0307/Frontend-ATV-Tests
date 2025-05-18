@@ -25,7 +25,7 @@ export default async function Offices() {
       </h1>
 
       <section className="px-6 mx-auto">
-        <DataTableOffices data={offices.results} />
+        <DataTableOffices data={offices.results.reverse()} />
       </section>
     </main>
   );

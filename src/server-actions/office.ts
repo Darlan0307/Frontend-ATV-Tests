@@ -31,3 +31,14 @@ export async function createOffice(payload: OfficePayload) {
 
   return { result };
 }
+
+export async function deleteOffice(id: number) {
+  await fetch(`http://127.0.0.1:8000/office/api/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  revalidateTag("list-offices");
+}

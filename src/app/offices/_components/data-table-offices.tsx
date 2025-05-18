@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal, Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +35,7 @@ import {
 } from "@/components/ui/table";
 import { Office } from "@/types/entities";
 import { DialogFormOffice } from "./dialog-form-office";
+import { deleteOffice } from "@/server-actions/office";
 
 export const columns: ColumnDef<Office>[] = [
   {
@@ -59,14 +60,15 @@ export const columns: ColumnDef<Office>[] = [
   },
   {
     accessorKey: "cnpj",
-    header: "CNPJ",
+    header: "CNPJ/CPF",
     cell: ({ row }) => <div>{row.getValue("cnpj")}</div>,
   },
   {
     accessorKey: "phone",
     header: "Telefone",
-    cell: ({ row }) => <div>{row.getValue("phone") ?? "-"}</div>,
+    cell: ({ row }) => <div>{row.getValue("phone") || "-"}</div>,
   },
+
   {
     id: "actions",
     enableHiding: false,
@@ -82,7 +84,7 @@ export const columns: ColumnDef<Office>[] = [
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuLabel>Ações</DropdownMenuLabel>
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(office.uuid)}
             >
@@ -92,6 +94,21 @@ export const columns: ColumnDef<Office>[] = [
         </DropdownMenu>
       );
     },
+  },
+
+  {
+    id: "remove",
+    enableHiding: false,
+    cell: ({ row }) => (
+      <Button
+        onClick={() => deleteOffice(row.original.id)}
+        className="cursor-pointer"
+        variant="destructive"
+        size="icon"
+      >
+        <Trash />
+      </Button>
+    ),
   },
 ];
 
