@@ -37,9 +37,9 @@ import { Resource } from "@/types/entities";
 
 export const columns: ColumnDef<Resource>[] = [
   {
-    accessorKey: "code",
+    accessorKey: "id",
     header: "Código",
-    cell: ({ row }) => <div>{row.getValue("code")}</div>,
+    cell: ({ row }) => <div>{row.getValue("id")}</div>,
   },
   {
     accessorKey: "name",
@@ -78,7 +78,7 @@ export const columns: ColumnDef<Resource>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(office.id)}
+              onClick={() => navigator.clipboard.writeText(office.uuid)}
             >
               Copiar ID interno
             </DropdownMenuItem>

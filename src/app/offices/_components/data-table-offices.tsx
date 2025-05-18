@@ -34,12 +34,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Office } from "@/types/entities";
+import { DialogFormOffice } from "./dialog-form-office";
 
 export const columns: ColumnDef<Office>[] = [
   {
-    accessorKey: "code",
+    accessorKey: "id",
     header: "Código",
-    cell: ({ row }) => <div>{row.getValue("code")}</div>,
+    cell: ({ row }) => <div>{row.getValue("id")}</div>,
   },
   {
     accessorKey: "name",
@@ -83,7 +84,7 @@ export const columns: ColumnDef<Office>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(office.id)}
+              onClick={() => navigator.clipboard.writeText(office.uuid)}
             >
               Copiar ID interno
             </DropdownMenuItem>
@@ -138,32 +139,36 @@ export function DataTableOffices({ data }: PropsDataTableOffices) {
           className="max-w-sm"
         />
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Colunas <ChevronDown />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((column) => column.getCanHide())
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="ml-auto space-x-4">
+          <DialogFormOffice />
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline">
+                Colunas <ChevronDown />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  );
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>

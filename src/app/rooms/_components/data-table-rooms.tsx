@@ -40,14 +40,14 @@ export const columns: ColumnDef<Room>[] = [
     accessorKey: "office",
     header: "Escritório",
     cell: ({ row }) => (
-      <div>{row.original.code + " - " + row.original.name}</div>
+      <div>{row.original.office.id + " - " + row.original.office.name}</div>
     ),
   },
 
   {
-    accessorKey: "code",
+    accessorKey: "id",
     header: "Código",
-    cell: ({ row }) => <div>{row.getValue("code")}</div>,
+    cell: ({ row }) => <div>{row.getValue("id")}</div>,
   },
   {
     accessorKey: "name",
@@ -83,7 +83,7 @@ export const columns: ColumnDef<Room>[] = [
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const office = row.original;
+      const room = row.original;
 
       return (
         <DropdownMenu>
@@ -96,7 +96,7 @@ export const columns: ColumnDef<Room>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(office.id)}
+              onClick={() => navigator.clipboard.writeText(room.uuid)}
             >
               Copiar ID interno
             </DropdownMenuItem>
