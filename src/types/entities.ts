@@ -40,3 +40,8 @@ export type OfficePayload = {
   location: string;
   phone?: string;
 };
+
+export type ResourcePayload = {
+  name: string;
+  description: string;
+};

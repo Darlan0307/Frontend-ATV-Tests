@@ -1,19 +1,14 @@
 "use server";
 
 import { revalidateTag } from "next/cache";
-import { OfficePayload } from "@/types/entities";
+import { ResourcePayload } from "@/types/entities";
 
-export async function createOffice(payload: OfficePayload) {
-  if (
-    !payload.name?.trim() ||
-    !payload.description?.trim() ||
-    !payload.cnpj?.trim() ||
-    !payload.location?.trim()
-  ) {
+export async function createResources(payload: ResourcePayload) {
+  if (!payload.name?.trim() || !payload.description?.trim()) {
     return { error: "Dados inválidos" };
   }
 
-  const response = await fetch("http://127.0.0.1:8000/office/api/", {
+  const response = await fetch("http://127.0.0.1:8000/additional/resources/", {
     method: "POST",
     body: JSON.stringify(payload),
     headers: {
@@ -27,7 +22,7 @@ export async function createOffice(payload: OfficePayload) {
 
   const result = await response.json();
 
-  revalidateTag("list-offices");
+  revalidateTag("list-resources");
 
   return { result };
 }

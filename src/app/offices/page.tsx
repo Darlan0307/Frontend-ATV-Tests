@@ -21,7 +21,7 @@ export default async function Offices() {
         <ButtonBack />
       </div>
       <h1 className="text-3xl text-center font-bold  mb-8">
-        {offices.count} escritórios disponíveis
+        {offices.count} Escritórios Disponíveis
       </h1>
 
       <section className="px-6 mx-auto">

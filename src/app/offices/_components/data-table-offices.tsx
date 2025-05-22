@@ -35,7 +35,6 @@ import {
 } from "@/components/ui/table";
 import { Office } from "@/types/entities";
 import { DialogFormOffice } from "./dialog-form-office";
-import { deleteOffice } from "@/server-actions/office";
 
 export const columns: ColumnDef<Office>[] = [
   {
@@ -99,13 +98,8 @@ export const columns: ColumnDef<Office>[] = [
   {
     id: "remove",
     enableHiding: false,
-    cell: ({ row }) => (
-      <Button
-        onClick={() => deleteOffice(row.original.id)}
-        className="cursor-pointer"
-        variant="destructive"
-        size="icon"
-      >
+    cell: () => (
+      <Button className="cursor-pointer" variant="destructive" size="icon">
         <Trash />
       </Button>
     ),
