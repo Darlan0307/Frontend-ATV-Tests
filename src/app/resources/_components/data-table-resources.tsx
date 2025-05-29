@@ -136,6 +136,7 @@ export function DataTableResources({ data }: PropsDataTableResources) {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
+          data-test="input-resources-search"
           placeholder="Pesquise pelo nome..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
@@ -175,7 +176,7 @@ export function DataTableResources({ data }: PropsDataTableResources) {
         </div>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table data-test="table-resources">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

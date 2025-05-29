@@ -66,7 +66,11 @@ export function DialogFormResources() {
             Preencha as informações do novo recurso
           </DialogDescription>
         </DialogHeader>
-        <form action={handleCreateOffice} className="grid gap-4 py-4">
+        <form
+          action={handleCreateOffice}
+          className="grid gap-4 py-4"
+          data-test="form-resource"
+        >
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Nome
@@ -75,6 +79,7 @@ export function DialogFormResources() {
               id="name"
               name="name"
               className="col-span-3"
+              data-test="resource-name"
               value={formData.name}
               onChange={handleInputChange}
             />
@@ -87,6 +92,7 @@ export function DialogFormResources() {
               id="description"
               name="description"
               className="col-span-3"
+              data-test="resource-description"
               value={formData.description}
               onChange={handleInputChange}
             />
