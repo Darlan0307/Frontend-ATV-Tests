@@ -55,7 +55,9 @@ export function DialogFormResources() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Criar</Button>
+        <Button variant="outline" id="btn-create-resource">
+          Criar
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -91,7 +93,11 @@ export function DialogFormResources() {
           </div>
 
           <div className="flex justify-end">
-            <Button type="submit" className="cursor-pointer w-[60px]">
+            <Button
+              type="submit"
+              id="btn-save-resource"
+              className="cursor-pointer w-[60px]"
+            >
               Salvar
             </Button>
           </div>

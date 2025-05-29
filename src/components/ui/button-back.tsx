@@ -11,6 +11,7 @@ export function ButtonBack() {
       size="lg"
       className="cursor-pointer text-lg bg-color-3 text-white"
       onClick={() => router.back()}
+      id="btn-back"
     >
       <ChevronLeft />
       Voltar

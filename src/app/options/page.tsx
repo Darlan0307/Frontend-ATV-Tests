@@ -40,13 +40,17 @@ export default function Options() {
       <div className="ml-6">
         <ButtonBack />
       </div>
-      <section className="flex justify-center align-middle gap-6 pt-[25vh]">
+      <section
+        className="flex justify-center align-middle gap-6 pt-[25vh]"
+        data-test="container-options"
+      >
         {links.map((link) => (
           <div
             className="relative bg-card size-[120px] rounded-xl  grid place-content-center cursor-pointer border-primary border-solid border-[1px] transition-all hover:scale-105"
             key={link.id}
             id={link.id}
             onClick={() => router.push(link.href)}
+            data-test="card-option"
           >
             <link.icon size={35} className="mx-auto" />
             <span className="text-lg font-semibold">{link.text}</span>

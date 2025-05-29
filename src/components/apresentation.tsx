@@ -9,11 +9,14 @@ export function Apresentation() {
 
   return (
     <article className="max-w-[600px] flex flex-col space-y-6 pt-5 ">
-      <h1 className="text-4xl text-center font-bold tracking-tighter md:text-5xl lg:text-7xl">
+      <h1
+        className="text-4xl text-center font-bold tracking-tighter md:text-5xl lg:text-7xl"
+        data-test="home-title"
+      >
         WorkSpace <AuroraText>Pro</AuroraText>
       </h1>
       <div className="space-y-4">
-        <p className="text-lg text-center px-2">
+        <p className="text-lg text-center px-2" data-test="home-description">
           Encontre e reserve a sala de escritório perfeita para cada
           necessidade. Navegação intuitiva e disponibilidade em tempo real para
           otimizar seu dia de trabalho.
